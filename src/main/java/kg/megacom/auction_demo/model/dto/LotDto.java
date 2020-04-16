@@ -8,6 +8,7 @@ import java.util.Date;
 @Data
 public class LotDto {
 
+    private Long id;
     private String name;
     private double minPrice;
     private double maxPrice;

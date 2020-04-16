@@ -1,9 +1,7 @@
 package kg.megacom.auction_demo.controller;
 
-import kg.megacom.auction_demo.model.dto.BidDto;
 import kg.megacom.auction_demo.model.dto.StatusDto;
 import kg.megacom.auction_demo.model.entity.Status;
-import kg.megacom.auction_demo.service.BidService;
 import kg.megacom.auction_demo.service.StatusService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

@@ -3,13 +3,13 @@ package kg.megacom.auction_demo.service.impl;
 import kg.megacom.auction_demo.database.StatusRepository;
 import kg.megacom.auction_demo.mapper.ClassMapper;
 import kg.megacom.auction_demo.model.dto.StatusDto;
-import kg.megacom.auction_demo.model.entity.Bid;
 import kg.megacom.auction_demo.model.entity.Status;
 import kg.megacom.auction_demo.service.StatusService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class StatusServiceImpl implements StatusService {
@@ -26,7 +26,10 @@ public class StatusServiceImpl implements StatusService {
     }
 
     @Override
-    public List<Status> findAllStatuses() {
-        return statusRepository.findAll();
+    public List<StatusDto> findAllStatuses() {
+        return statusRepository.findAll()
+                .stream()
+                .map(ClassMapper.INSTANCE::statusToStatusDto)
+                .collect(Collectors.toList());
     }
 }

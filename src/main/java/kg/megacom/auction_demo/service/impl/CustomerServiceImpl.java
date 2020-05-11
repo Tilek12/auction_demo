@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
@@ -26,7 +27,10 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public List<Customer> findAllCustomers() {
-        return customerRepository.findAll();
+    public List<CustomerDto> findAllCustomers() {
+        return customerRepository.findAll()
+                .stream()
+                .map(ClassMapper.INSTANCE::customerToCustomerDto)
+                .collect(Collectors.toList());
     }
 }

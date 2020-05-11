@@ -20,8 +20,9 @@ public class UserController {
         return userService.saveUser(userDto);
     }
 
-    @GetMapping(value = "/getAllUsers")
-    public List<User> getAllUsers(){
+    @GetMapping(value = "/list")
+    public List<UserDto> getAllUsers(){
+
         return userService.findAllUsers();
     }
 }

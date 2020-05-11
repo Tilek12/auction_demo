@@ -1,7 +1,6 @@
 package kg.megacom.auction_demo.controller;
 
 import kg.megacom.auction_demo.model.dto.BidDto;
-import kg.megacom.auction_demo.model.entity.Bid;
 import kg.megacom.auction_demo.service.BidService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,8 +19,8 @@ public class BidController {
         return bidService.saveBid(bidDto);
     }
 
-    @GetMapping(value = "/getAllBids")
-    public List<Bid> getAllBids(){
+    @GetMapping(value = "/list")
+    public List<BidDto> getAllBids(){
         return bidService.findAllBids();
     }
 }
